@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="navbar">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">Home Section</section>
+        <section id="services">Services Section</section>
+        <section id="about">About Section</section>
+        <section id="contact">Contact Section</section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+/* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Space for fixed navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #333;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Section Styles */
+section {
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+#home { background-color: #f1f1f1; }
+#services { background-color: #e2e2e2; }
+#about { background-color: #d3d3d3; }
+#contact { background-color: #c4c4c4; }
+
+/* Navbar Style on Scroll */
+.navbar.scrolled {
+    background-color: #222;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});
